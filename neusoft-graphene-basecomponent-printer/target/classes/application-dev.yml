@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+path:
+  printer: src/main/resources/static/
+#  temp: src/main/resources/static/temp/
+
+printer:
+  mail:
+   account:  songgoogle2@163.com
+   password: 1qaz2wsx
+   smtpPort: 25
+   smtpHost: smtp.163.com
+   smtpAuth: true
+  oss:
+   accessId: LTAIn143EHjnv254
+   accessKey: yf5qVr6pkt18TAMCm9TcFBVFYRkZE7
+   endpoint: http://oss-cn-hzjbp-b-internal.aliyuncs.com
+   bucketName: neusofttech-dev
+management:
+  security:
+    enabled: false
+logging:
+  level:
+   root: info
+url:
+   temp: http://127.0.0.1:8080
+datasource:
+#  url: jdbc:mysql://rm-bp133ji60202qxm57.mysql.rds.aliyuncs.com:3306/graphene_base_document_0
+  url: jdbc:mysql://rds6fbqrf6fbqrf.mysql.rds.aliyuncs.com:3306/doc_00
+  username: doc_user_tst
+  password: doc_user_tst_3c8566
+
+      

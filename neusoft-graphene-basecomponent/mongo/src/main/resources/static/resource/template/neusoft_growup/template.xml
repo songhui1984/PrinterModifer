@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="gbk" ?>
+<proposal>
+    <font_mapping>
+        <font name="hei" value="FONT_BOLDSONG"/>
+        <font name="kai" value="FONT_KAI"/>
+        <font name="song" value="FONT_SONG"/>
+    </font_mapping>
+
+    <page_setting>
+        <page name="default" default="yes" size="A4" x="100" y="0" width="1900" height="2970">
+        </page>
+    </page_setting>
+
+    <paragraph>
+        <image x="0" y="50" width="368" height="116" src="'logo.png'" url="'logo.png'"/>
+        <text x="50" y="150" width="1800" height="70" font="hei" font_size="60" color="black" align="center" value="'电子保险单'"/>
+        <reset/>
+        <text x="1320" y="10" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'保单号码：'"/>
+        <text x="1500" y="10" width="400" height="50" font="song" font_size="32" color="black" align="left" value="basePolicyInfo.policyNo"/>
+        <reset/>
+        <text x="0" y="0" width="1860" height="50" font="hei" font_size="32" color="black" align="left" value="'根据投保人申请，本公司承担下列保险责任，特此签发本保险单为据。'"/>
+        <reset/>
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="250" height="50" font="hei" font_size="32" color="black" align="left" value="'保险产品名称：'"/>
+        <text x="250" y="0" width="750" height="50" font="song" font_size="32" color="black" align="left" value="basePolicyInfo.productName"/>
+        <reset/>
+
+        <script>
+            var bX = [0,700,1175,1565,1900];
+            var bH = ["身故保险金受益人姓名","证件号码","受益顺序","受益比例"];
+            var bD = [["法定受益人","","",""]];
+            var body = new list();
+            if (insureBenefits != null and insureBenefits.insureBenefitVo != null) {
+                for (var xy : insureBenefits.insureBenefitVo) {
+                    body += xy;//[xy.planName,xy.responsibility,xy.deductible,xy.hasClaimRate,xy.claimRate,xy.premium];
+                }
+            }
+            var spec = "";
+            if (specials != null and specials.specialAgreement != null) {
+                for (var xy : specials.specialAgreement) {
+                    spec += xy.content + "\n";
+                }
+            }
+        </script>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'投保人：'"/>
+        <text x="190" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.name"/>
+        <text x="700" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'性别：'"/>
+        <text x="890" y="0" width="350" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.gender"/>
+        <text x="1225" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'出生日期：'"/>
+        <text x="1415" y="0" width="400" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.birthday"/>
+        <reset/>
+        <text x="0" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'证件类型：'"/>
+        <text x="190" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.certificateType"/>
+        <text x="700" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'证件号码：'"/>
+        <text x="890" y="0" width="350" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.certificateNo"/>
+        <reset/>
+        <text x="0" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'手机号码：'"/>
+        <text x="190" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.phoneNo"/>
+        <text x="700" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'客户编号：'"/>
+        <text x="890" y="0" width="350" height="50" font="song" font_size="32" color="black" align="left" value="policyHolder.userId"/>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'被保险人：'"/>
+        <text x="190" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="insurant.name"/>
+        <text x="700" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'性别：'"/>
+        <text x="890" y="0" width="350" height="50" font="song" font_size="32" color="black" align="left" value="insurant.gender"/>
+        <text x="1225" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'出生日期：'"/>
+        <text x="1415" y="0" width="400" height="50" font="song" font_size="32" color="black" align="left" value="insurant.birthday"/>
+        <reset/>
+        <text x="0" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'证件类型：'"/>
+        <text x="190" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="insurant.certificateType"/>
+        <text x="700" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'证件号码：'"/>
+        <text x="890" y="0" width="350" height="50" font="song" font_size="32" color="black" align="left" value="insurant.certificateNo"/>
+        <reset/>
+        <text x="0" y="0" width="250" height="50" font="hei" font_size="32" color="black" align="left" value="'与投保人关系：'"/>
+        <text x="250" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="insurant.relation"/>
+        <text x="1225" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'客户编号：'"/>
+        <text x="1415" y="0" width="400" height="50" font="song" font_size="32" color="black" align="left" value="insurant.userId"/>
+        <reset/>
+        <text x="0" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'学校：'"/>
+        <text x="190" y="0" width="500" height="50" font="song" font_size="32" color="black" align="left" value="basePolicyInfo.data.schoolName"/>
+        <text x="1225" y="0" width="180" height="50" font="hei" font_size="32" color="black" align="left" value="'班级：'"/>
+        <text x="1415" y="0" width="400" height="50" font="song" font_size="32" color="black" align="left" value="basePolicyInfo.data.className"/>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <loop from="0" to="3" name="i">
+            <text x="bX[i]" y="0" width="bX[i+1]-bX[i]" height="50" font="hei" font_size="32" color="black" align="left" value="bH[i]"/>
+        </loop>
+        <reset/>
+        <loop name="j" value="bD">
+            <loop from="0" to="3" name="i">
+                <text x="bX[i]" y="0" width="bX[i+1]-bX[i]" height="50" font="song" font_size="32" color="black" align="left" value="j[i]"/>
+            </loop>
+            <reset/>
+        </loop>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="1200" height="50" font="hei" font_size="32" color="black" align="center" value="'项目'"/>
+        <text x="1200" y="0" width="700" height="50" font="hei" font_size="32" color="black" align="center" value="'保障金额(人民币:元)'"/>
+        <reset/>
+        <loop name="j" value="body">
+            <text x="0" y="0" width="1200" height="50" font="song" font_size="32" color="black" align="center" value="j.responsibility"/>
+            <text x="1200" y="0" width="700" height="50" font="song" font_size="32" color="black" align="center" value="j.premium"/>
+            <reset/>
+        </loop>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="400" height="50" font="hei" font_size="32" color="black" align="left" value="'保险期间：'"/>
+        <text x="265" y="0" width="1500" height="50" font="song" font_size="32" color="black" align="left" value="basePolicyInfo.insuredPeriod"/>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="300" height="50" font="hei" font_size="32" color="black" align="left" value="'总保险费：（大写）'"/>
+        <text x="300" y="0" width="900" height="50" font="song" font_size="32" color="black" align="left" value="'人民币：' + basePolicyInfo.premiumCN"/>
+        <text x="1225" y="0" width="600" height="50" font="song" font_size="32" color="black" align="left" value="'￥' + basePolicyInfo.policyPremium"/>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="1900" height="50" font="hei" font_size="32" color="black" align="left" value="'特别约定：'"/>
+        <reset/>
+        <text x="0" y="0" width="1900" height="50" font="song" font_size="28" color="black" align="left" value="spec"/>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <text x="0" y="0" width="1900" height="50" font="hei" font_size="32" color="black" align="left" value="'适用条款：'"/>
+        <reset/>
+        <loop name="j" value="try(productClauses.productClause, null)">
+            <text x="0" y="0" width="1800" height="50" font="song" font_size="32" color="black" align="left" value="j.clauseName" link="j.linkUrl"/>
+            <image x="1850" y="0" width="50" height="50" font="song" font_size="32" color="black" align="left" src="'download.jpg'" link="j.linkUrl"/>
+            <reset/>
+        </loop>
+        <reset/>
+
+        <rect x="0" y="0" width="1900" height="1" color="black"/>
+        <image x="1300" y="10" width="360" height="366" src="'sign.png'" url="'sign.png'"/>
+        <text x="0" y="0" width="1900" height="320" font="hei" font_size="32" color="black" align="center" value="''"/>
+        <text x="1250" y="40" width="500" height="50" font="hei" font_size="32" color="black" align="left" value="'保险人（盖章）：'"/>
+        <text x="1300" y="200" width="500" height="50" font="hei" font_size="32" color="black" align="right" value="basePolicyInfo.issueDate"/>
+
+        <reset/>
+        <text x="50" y="20" width="1800" height="120" font="song" font_size="32" color="black" align="left" value="'尊敬的客户：您可以通过访问本公司网站（www.neusoft.com）或拨打全国统一客服电话（1010-9955或400-999-9595）查询保险单信息。若对查询结果有异议，请尽快联系本公司。'"/>
+
+    </paragraph>
+
+</proposal>
